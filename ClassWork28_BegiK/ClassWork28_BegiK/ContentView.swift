@@ -57,8 +57,13 @@ struct ContentView: View {
                             .scaledToFill()
                             .foregroundColor(.blue)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 40))
-                            .background(.clear)
-                            .foregroundColor(isButtonClicked ? .red : .blue)
+                            .overlay(
+                                Circle()
+                                    .stroke(isButtonClicked ? Color.red : Color.blue, lineWidth: 2)
+                                    .frame(width: 50, height: 50)
+                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 40))
+                            )
+                            .background(Color.clear)
                     }
                 }
             }
