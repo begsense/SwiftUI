@@ -59,8 +59,8 @@ struct ContentView: View {
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 40))
                             .overlay(
                                 Circle()
-                                    .stroke(isButtonClicked ? Color.red : Color.blue, lineWidth: 2)
-                                    .frame(width: 50, height: 50)
+                                    .stroke(isButtonClicked ? Color.red : Color.clear, lineWidth: 13)
+                                    .frame(width: 37, height: 37)
                                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 45, trailing: 40))
                             )
                             .background(Color.clear)
@@ -120,6 +120,7 @@ struct ContentView: View {
                         .padding(.horizontal, 19)
                         .shadow(color: .black, radius: 5, x: 0, y: 1)
                         .lineLimit(2)
+                    Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
