@@ -59,7 +59,7 @@ struct StoreView: View {
                             }
                         }
                         
-                        Button(action: { viewModel.deleteProduct(product: product) }) {
+                        Button(action: { viewModel.deleteFromCart(product: product) }) {
                             Image(systemName: "trash")
                                 .foregroundColor(.red)
                         }
@@ -94,7 +94,7 @@ struct StoreView: View {
                     UIApplication.shared.open(viewModel.googleUrl)
                 }) {
                     Text("ყიდვა")
-                        .foregroundColor(.primary)
+                        .foregroundColor(.white)
                         .padding(EdgeInsets(top: 10, leading: 18, bottom: 10, trailing: 18))
                         .background(LinearGradient(colors: [Color(red: 43/255, green: 43/255, blue: 255/255), Color(red: 23/255, green: 23/255, blue: 207/255)], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .cornerRadius(10)
