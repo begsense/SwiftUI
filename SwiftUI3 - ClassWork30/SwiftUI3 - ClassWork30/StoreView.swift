@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct StoreView: View {
+    //MARK: Properties:
     @ObservedObject var viewModel = StoreViewModel()
     
+    //MARK: View:
     var body: some View {
         VStack {
             HStack {
@@ -21,7 +23,7 @@ struct StoreView: View {
                     .font(.largeTitle)
                     .foregroundStyle(.primary)
             }
-
+            
             ScrollView {
                 ForEach(viewModel.products, id: \.id) { product in
                     HStack {
@@ -50,7 +52,7 @@ struct StoreView: View {
                             }
                             
                             Text("\(product.quantity)")
-                            .padding(.horizontal, 10)
+                                .padding(.horizontal, 10)
                             
                             Button(action: { viewModel.addToCart(product: product) }) {
                                 Image(systemName: "plus.circle")
@@ -102,6 +104,8 @@ struct StoreView: View {
         .padding(10)
     }
 }
+
+//MARK: Preview:
 
 #Preview {
     StoreView()

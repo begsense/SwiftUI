@@ -8,6 +8,7 @@
 import Foundation
 
 final class StoreViewModel: ObservableObject {
+    //MARK: Properties:
     @Published var products: [Product] = [
         Product(name: "ვაშლი", price: 3.0, imageName: "apple", quantity: 0, stock: 10),
         Product(name: "კარტოფილი", price: 1.5, imageName: "potato", quantity: 0, stock: 9),
@@ -36,6 +37,7 @@ final class StoreViewModel: ObservableObject {
         products.reduce(0) { $0 + $1.quantity }
     }
     
+    //MARK: Functions:
     func addToCart(product: Product) {
         guard let index = products.firstIndex(where: { $0.id == product.id }) else { return }
         if products[index].quantity < products[index].stock {

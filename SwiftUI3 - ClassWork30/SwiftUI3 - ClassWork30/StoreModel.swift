@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: Model:
 struct Product: Identifiable {
     let id = UUID()
     let name: String
