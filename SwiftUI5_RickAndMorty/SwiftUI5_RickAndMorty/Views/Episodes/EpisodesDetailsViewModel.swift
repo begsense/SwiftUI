@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import NetworkService
+import NetworkServicePackage
 
 class EpisodesDetailsViewModel: ObservableObject {
     
