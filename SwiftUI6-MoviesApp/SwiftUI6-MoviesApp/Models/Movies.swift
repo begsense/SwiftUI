@@ -55,4 +55,3 @@ enum OriginalLanguage: String, Decodable {
     case ko = "ko"
 }
 
-//აქ ზედმეტი ველები იმიტო მაქ რომ დავალება არის to be continued, so იქნებ დამჭირდეს მერე:)

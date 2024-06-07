@@ -15,13 +15,14 @@ struct MainView: View {
         TabView {
             MoviesView()
                 .tabItem {
-                    Text("Movies")
-                    Image(systemName: "movieclapper")
+                    Text("Home")
+                    Image("home")
                 }
+            
             SearchView()
                 .tabItem {
                     Text("Search")
-                    Image(systemName: "magnifyingglass.circle.fill")
+                    Image("search")
                 }
         }
         .alert(isPresented: $viewModel.showFetchError) {
