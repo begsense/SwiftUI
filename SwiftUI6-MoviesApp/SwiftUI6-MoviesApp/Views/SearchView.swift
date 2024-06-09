@@ -61,7 +61,6 @@ struct SearchView: View {
                     Spacer()
                 }
             }
-            .navigationTitle("Search")
             .foregroundColor(.primary)
             .alert(isPresented: $viewModel.showFetchError) {
                 Alert(title: Text("Error"), message: Text("Failed to fetch data"), dismissButton: .default(Text("OK")))

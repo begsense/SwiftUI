@@ -37,7 +37,8 @@ struct MoviesView: View {
                     }
                 }
                 .navigationDestination(for: Int.self) { index in
-                    MovieDetailsView(selectedMovie: mainViewModel.movies[index])
+                    MovieDetailsView(selectedMovie: mainViewModel.movies[index],
+                                     selectedFavoritedMovie: MoviesData(backdropPath: mainViewModel.movies[index].backdropPath, posterPath: mainViewModel.movies[index].posterPath, title: mainViewModel.movies[index].title, voteAverage: mainViewModel.movies[index].voteAverage, starCount: Int(mainViewModel.starCount(movieIndex: mainViewModel.movies[index].voteAverage)), voteCount: mainViewModel.movies[index].voteCount, releaseDate: mainViewModel.movies[index].releaseDate, language: mainViewModel.movies[index].originalLanguage.rawValue, overview: mainViewModel.movies[index].overview))
                 }
                 .navigationTitle("Movies")
             }

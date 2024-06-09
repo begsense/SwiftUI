@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="3mG-ki-Yf8">
-                                <rect key="frame" x="83" y="309" width="215" height="215"/>
+                                <rect key="frame" x="88.76684881604433" y="319.14389799634" width="215.00000000004206" height="214.99999999995782"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -44,7 +44,7 @@
     <resources>
         <image name="launchScreen" width="215" height="215"/>
         <namedColor name="launchScreenColor">
-            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkServicePackage
+import SwiftData
 
 class MainViewModel: ObservableObject {
     //MARK: Properies
@@ -108,4 +109,33 @@ class MainViewModel: ObservableObject {
         }
     }
     
+    func checkIfFavorited(movie: MoviesResults?, favoritedMovies: [MoviesData]) -> Bool {
+        guard let movie = movie else { return false }
+        return favoritedMovies.contains { $0.title == movie.title }
+    }
+    
+    func toggleFavoriteStatus(movie: MoviesResults?, favoritedMovie: MoviesData?, favoritedMovies: [MoviesData], context: ModelContext) {
+        if let movie = movie {
+            if let favoritedMovie = favoritedMovies.first(where: { $0.title == movie.title }) {
+                context.delete(favoritedMovie)
+            } else {
+                context.insert(MoviesData(
+                    backdropPath: movie.backdropPath,
+                    posterPath: movie.posterPath,
+                    title: movie.title,
+                    voteAverage: movie.voteAverage,
+                    starCount: Int(starCount(movieIndex: movie.voteAverage)),
+                    voteCount: movie.voteCount,
+                    releaseDate: movie.releaseDate,
+                    language: movie.originalLanguage.rawValue,
+                    overview: movie.overview
+                ))
+            }
+        } else if let favoritedMovie = favoritedMovie {
+            context.delete(favoritedMovie)
+        }
+        
+        try? context.save()
+        
+    }
 }

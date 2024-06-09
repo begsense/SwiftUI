@@ -24,6 +24,12 @@ struct MainView: View {
                     Text("Search")
                     Image("search")
                 }
+            
+            FavoritesView()
+                .tabItem {
+                    Text("Favorites")
+                    Image(systemName: "heart.fill")
+                }
         }
         .alert(isPresented: $viewModel.showFetchError) {
             Alert(title: Text("რო იცოდე"),
