@@ -19,7 +19,7 @@ struct Movies: Decodable {
     }
 }
 
-struct MoviesResults: Decodable {
+struct MoviesResults: Decodable, Identifiable {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]

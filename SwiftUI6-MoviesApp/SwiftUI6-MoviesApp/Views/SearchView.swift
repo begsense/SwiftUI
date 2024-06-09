@@ -14,39 +14,7 @@ struct SearchView: View {
     var body: some View {
         VStack {
             NavigationStack {
-                HStack {
-                    TextField("try Godzilla", text: $viewModel.searchText)
-                        .padding(10)
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(8)
-                        .frame(width: 283, height: 43)
-                        .onChange(of: viewModel.searchText) {
-                            viewModel.filterMovies()
-                        }
-                        .overlay(alignment: .trailing) {
-                            Image("search")
-                                .padding(.trailing, 14)
-                        }
-                    
-                    Menu {
-                        ForEach(MainViewModel.SearchOption.allCases) { option in
-                            Button(action: {
-                                viewModel.searchOption = option
-                                selectedOption = option
-                            }) {
-                                
-                                if selectedOption == option {
-                                    Image("leading")
-                                }
-                                Text(option.rawValue)
-                                
-                            }
-                        }
-                    } label: {
-                        Image("picker")
-                    }
-                }
-                .navigationTitle("Search")
+                searchBar
                 
                 switch viewModel.currentViewState {
                 case .hello:
@@ -68,7 +36,7 @@ struct SearchView: View {
                     Spacer()
                 case .results:
                     ScrollView {
-                        ForEach(viewModel.filteredMovies, id: \.id) { movie in
+                        ForEach(viewModel.filteredMovies) { movie in
                             NavigationLink(destination: MovieDetailsView(selectedMovie: movie)) {
                                 MovieCellView(posterPath: movie.posterPath, title: movie.title, voteAverage: movie.voteAverage, starCount: Int(viewModel.starCount(movieIndex: movie.voteAverage)), voteCount: movie.voteCount, releaseDate: movie.releaseDate, language: movie.originalLanguage.rawValue)
                             }
@@ -100,9 +68,44 @@ struct SearchView: View {
             }
         }
     }
+    
+    private var searchBar: some View {
+        HStack {
+            TextField("try Godzilla", text: $viewModel.searchText)
+                .padding(10)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(8)
+                .frame(width: 283, height: 43)
+                .onChange(of: viewModel.searchText) {
+                    viewModel.filterMovies()
+                }
+                .overlay(alignment: .trailing) {
+                    Image("search")
+                        .padding(.trailing, 14)
+                }
+            
+            Menu {
+                ForEach(MainViewModel.SearchOption.allCases) { option in
+                    Button(action: {
+                        viewModel.searchOption = option
+                        selectedOption = option
+                    }) {
+                        
+                        if selectedOption == option {
+                            Image("leading")
+                        }
+                        Text(option.rawValue)
+                        
+                    }
+                }
+            } label: {
+                Image("picker")
+            }
+        }
+        .navigationTitle("Search")
+    }
+    
 }
-
-
 
 #Preview {
     SearchView()
